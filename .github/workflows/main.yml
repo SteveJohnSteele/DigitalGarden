@@ -3,26 +3,29 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches:
-      - main  # Deploys when changes are pushed to the 'main' branch
+      - main  # Trigger deployment on push to main branch
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ secrets.GH_TOKEN }}  # GitHub token for authentication
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-      
+
       - name: Set up Python
         uses: actions/setup-python@v2
         with:
-          python-version: 3.9  # Use the Python version that suits your project
+          python-version: 3.9
 
       - name: Install dependencies
         run: |
-          pip install -r requirements.txt  # Install the required dependencies
+          pip install -r requirements.txt
 
       - name: Build the site
-        run: mkdocs build  # Build the MkDocs site
+        run: mkdocs build
 
       - name: Deploy to GitHub Pages
-        run: mkdocs gh-deploy --force  # Deploy to the gh-pages branch
+        run: mkdocs gh-deploy --force
