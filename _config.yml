@@ -1,1 +1,3 @@
-remote_theme: just-the-docs/just-the-docs
+site_name: My Digital Garden
+theme:
+  name: material
