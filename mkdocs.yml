@@ -1,6 +1,12 @@
-site_name: Digital Garden
-theme:
-  name: 'material'
+site_name: My Digital Garden
+theme: material  # You can use a different theme if needed
+plugins:
+  - search
+  - autonav  # Automatically generate sidebar based on folders
 
-nav: !!python/tuple
-  - Home: 'index.md'
+markdown_extensions:
+  - toc:
+      permalink: true
+
+nav:  # Leave this empty, the plugin will auto-generate it.
+  - Home: index.md
