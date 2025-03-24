@@ -1,3 +1,7 @@
-site_name: My Digital Garden
+site_name: Digital Garden
 theme:
   name: material
+
+plugins:
+  - search
+  - awesome-pages  # Automatically structures the sidebar
